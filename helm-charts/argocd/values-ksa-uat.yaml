@@ -1,7 +1,5 @@
 argo-cd:
 
-  redis-ha:
-    enabled: false
     
   ## Repo Server
   repoServer:      
@@ -18,7 +16,7 @@ argo-cd:
       enabled: false   
       serviceMonitor:
         # -- Enable a prometheus ServiceMonitor
-        enabled: false 
+        enabled: false
         
     env:   
       - name: AVP_K8S_MOUNT_PATH

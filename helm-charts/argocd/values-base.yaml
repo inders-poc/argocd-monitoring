@@ -1,8 +1,8 @@
 global:
   image:
     # -- If defined, a repository applied to all Argo CD deployments
-    repository: kadirzade/argocd
-    tag: "v2.3.4"
+    repository: inder1991/argocd-customized
+    tag: "1.0.0"
 
 argo-cd:    
   # This key configures Redis-HA subchart and when enabled (redis-ha.enabled=true)
@@ -10,7 +10,7 @@ argo-cd:
   # Check the redis-ha chart for more properties
   redis-ha:
     # -- Enables the Redis HA subchart and disables the custom Redis single node deployment
-    enabled: true
+    enabled: false
     exporter:
       # -- If `true`, the prometheus exporter sidecar is enabled
       enabled: true

@@ -1,0 +1,6 @@
+dependencies:
+- name: argocd-apps
+  repository: https://inders-poc.github.io/helm-charts/
+  version: 0.0.8
+digest: sha256:a635e37db97f41618b2c1ee1910d5fe90c110350ef321baaef63e49de3a33825
+generated: "2023-02-22T15:02:16.322081+04:00"
