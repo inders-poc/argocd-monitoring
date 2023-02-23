@@ -1,0 +1,6 @@
+dependencies:
+- name: argo-cd
+  repository: https://inders-poc.github.io/helm-charts/
+  version: 5.22.1
+digest: sha256:abd3a0a6695a687488d088201270a3d1fae4bd80b52f461c4b50c0a22af8ec3b
+generated: "2023-02-22T19:11:09.548005+04:00"

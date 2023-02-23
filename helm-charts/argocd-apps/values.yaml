@@ -1,0 +1,43 @@
+argocd-apps:
+  applications:
+  - name: argocd-deploy-secret
+    namespace: argocd
+    additionalAnnotations:
+      argocd.argoproj.io/sync-wave: "0"
+    finalizers:
+     - resources-finalizer.argocd.argoproj.io
+    project: default
+    destination:
+      namespace: argocd
+      server: https://kubernetes.default.svc
+    source:
+      plugin:
+            name: argocd-vault-plugin-helm
+            env:
+              - name: HELM_VALUES
+                value: |
+                  # global:
+                  #   env: dev
+                  #   clusterName: bwb
+      path: helm-charts
+      repoURL: https://github.com/inders-poc/argo-deploy-secrets.git
+      targetRevision: HEAD
+  - name: argocd
+    namespace: argocd
+    annotations:
+      argocd.argoproj.io/sync-wave: "1"      
+    destination:
+       namespace: argocd
+       server: https://kubernetes.default.svc
+    project: argocd
+    source:
+       helm:
+         version: v3
+         valueFiles:
+            - values-base.yaml  
+            - values-ksa-uat.yaml
+            - values-ksa-apps-uat.yaml                    
+       path: helm-charts/argocd
+       repoURL: git@github.com:inders-poc/argocd-monitoring.git
+       targetRevision: HEAD
+
