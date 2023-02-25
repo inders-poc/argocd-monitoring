@@ -41,6 +41,22 @@ argocd-apps:
        repoURL: git@github.com:inders-poc/argocd-monitoring.git
        targetRevision: HEAD
 
+  - name: argod-apps
+    namespace: argocd
+    annotations:
+      argocd.argoproj.io/sync-wave: "1"      
+    destination:
+       namespace: default
+       server: https://kubernetes.default.svc
+    project: argocd
+    source:
+       helm:
+         version: v3
+         valueFiles:
+            - values.yaml  
+       path: helm-charts/argocd-apps
+       repoURL: git@github.com:inders-poc/argocd-monitoring.git
+       targetRevision: HEAD
   - name: infra-apps
     namespace: argocd
     annotations:
