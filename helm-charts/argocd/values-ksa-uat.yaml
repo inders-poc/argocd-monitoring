@@ -20,9 +20,9 @@ argo-cd:
         
     env:   
       - name: AVP_K8S_MOUNT_PATH
-        value: sahab2-kv-dev/data/GitHub
+        value: kv-v2/data/argocd
       - name: AVP_K8S_ROLE
-        value: security
+        value: argocd
       - name: VAULT_ADDR
         value: http://vault.default.svc:8200 
       - name: AVP_TYPE
